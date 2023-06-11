@@ -1,0 +1,115 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d285eb63c2cdd74180de7cfceaa96ad, type: 3}
+  m_Name: RandomWalk
+  m_EditorClassIdentifier: 
+  rootNode:
+    rid: 3195392154864713734
+  nodes:
+  - rid: 3195392154864713734
+  - rid: 3195392154864713735
+  - rid: 3195392154864713736
+  - rid: 3195392154864713737
+  - rid: 3195392154864713738
+  - rid: 3195392154864713739
+  treeState: 0
+  blackboard:
+    moveToPosition: {x: 0, y: 0, z: 0}
+  viewPosition: {x: 235, y: 71, z: 0}
+  viewScale: {x: 0.8695652, y: 0.8695652, z: 1}
+  references:
+    version: 2
+    RefIds:
+    - rid: 3195392154864713734
+      type: {class: RootNode, ns: BehaviorTreeNodeGraphEditor, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: a06a3723-9b84-43cb-a99c-cf1c12ded061
+        position: {x: -0.00000667572, y: 1.1500044}
+        blackboard:
+          moveToPosition: {x: 0, y: 0, z: 0}
+        description: "\u59CB\u307E\u308A"
+        drawGizmos: 0
+        child:
+          rid: 3195392154864713735
+    - rid: 3195392154864713735
+      type: {class: Repeat, ns: BehaviorTreeNodeGraphEditor, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 522fd48493bd1694ba13debc63c579d3
+        position: {x: -0.00000667572, y: 115.15001}
+        blackboard:
+          moveToPosition: {x: 0, y: 0, z: 0}
+        description: "\u6C38\u9060\u306B\u7E70\u308A\u8FD4\u3059"
+        drawGizmos: 0
+        child:
+          rid: 3195392154864713736
+        restartOnSuccess: 1
+        restartOnFailure: 0
+    - rid: 3195392154864713736
+      type: {class: Sequencer, ns: BehaviorTreeNodeGraphEditor, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: fc4c50a26fc3eec44b64639249dcdb8b
+        position: {x: -0.00000667572, y: 239.15002}
+        blackboard:
+          moveToPosition: {x: 0, y: 0, z: 0}
+        description: "\u30E9\u30F3\u30C0\u30E0\u9078\u629E\u3001\u79FB\u52D5\u3001\u4FE1\u53F7\u3092\u5F85\u3064"
+        drawGizmos: 0
+        children:
+        - rid: 3195392154864713737
+        - rid: 3195392154864713738
+        - rid: 3195392154864713739
+    - rid: 3195392154864713737
+      type: {class: Wait, ns: BehaviorTreeNodeGraphEditor, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 7a27feb54b25a1a4aa7ae76fb66e5cd5
+        position: {x: -183.41803, y: 374.00006}
+        blackboard:
+          moveToPosition: {x: 0, y: 0, z: 0}
+        description: "\u5F85\u3064"
+        drawGizmos: 0
+        duration: 1
+    - rid: 3195392154864713738
+      type: {class: RandomPosition, ns: , asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: c9deed4e049323149ae058398f265387
+        position: {x: -0.00000667572, y: 374.00006}
+        blackboard:
+          moveToPosition: {x: 0, y: 0, z: 0}
+        description: "\u79FB\u52D5\u53EF\u80FD\u7BC4\u56F2\u306B\u30E9\u30F3\u30C0\u30E0\u306B\u30DD\u30B8\u30B7\u30E7\u30F3\u3092\u751F\u6210\u3059\u308B"
+        drawGizmos: 0
+        min: {x: -10, y: -10}
+        max: {x: 10, y: 10}
+    - rid: 3195392154864713739
+      type: {class: MoveToPosition, ns: , asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: b8ea75a26de7de447acad694f4910054
+        position: {x: 168.00006, y: 374.00006}
+        blackboard:
+          moveToPosition: {x: 0, y: 0, z: 0}
+        description: "\u79FB\u52D5\u53EF\u80FD\u4F4D\u7F6E\u306E\u751F\u6210\u3055\u308C\u305F\u30DD\u30B8\u30B7\u30E7\u30F3\u306B\u79FB\u52D5\u3059\u308B"
+        drawGizmos: 0
+        speed: 5
+        stoppingDistance: 0.1
+        updateRotation: 1
+        acceleration: 40
+        tolerance: 1
