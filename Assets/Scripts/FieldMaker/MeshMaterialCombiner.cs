@@ -11,9 +11,9 @@ public class MeshMaterialCombiner : MonoBehaviour
         CombineMeshWithMaterial();
     }
 
-    private void CombineMeshWithMaterial()
+    void CombineMeshWithMaterial()
     {
-        foreach (var f in _fieldGeneratorArray)
+        foreach(var f in _fieldGeneratorArray)
         {
             MeshFilter[] meshFilters = f.GetComponentsInChildren<MeshFilter>();
             MeshRenderer[] meshRenderers = f.GetComponentsInChildren<MeshRenderer>();
@@ -42,7 +42,8 @@ public class MeshMaterialCombiner : MonoBehaviour
 
             foreach (KeyValuePair<string, List<MeshFilter>> pair in matFilterDict)
             {
-                GameObject obj = CreateMeshObj(pair.Key, f);
+
+                GameObject obj = CreateMeshObj(pair.Key,f);
                 obj.transform.SetAsFirstSibling();
 
                 MeshFilter combinedMeshFilter = CheckComponent<MeshFilter>(obj);
@@ -71,13 +72,13 @@ public class MeshMaterialCombiner : MonoBehaviour
             }
         }
 
-        foreach (var i in _fieldGeneratorArray)
+        foreach(var i in _fieldGeneratorArray)
         {
-            i.transform.position = Vector3.zero;
+            i.transform.position = new Vector3(0,0,0);
         }
     }
 
-    private GameObject CreateMeshObj(string matName, Transform f)
+    GameObject CreateMeshObj(string matName, Transform f)
     {
         GameObject go = new GameObject();
         go.name = $"CombinedMesh_{matName}";
@@ -86,7 +87,7 @@ public class MeshMaterialCombiner : MonoBehaviour
         return go;
     }
 
-    private T CheckComponent<T>(GameObject obj) where T : Component
+    T CheckComponent<T>(GameObject obj) where T : Component
     {
         var targetComp = obj.GetComponent<T>();
         if (targetComp == null)

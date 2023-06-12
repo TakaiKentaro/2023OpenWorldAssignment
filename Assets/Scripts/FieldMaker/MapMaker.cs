@@ -7,10 +7,9 @@ public class MapMaker : MonoBehaviour
 {
     [SerializeField] private int _fieldSize = 0;
     [SerializeField] private GameObject _fieldGenerator;
-    [SerializeField] private MeshMaterialCombiner _meshMaterialCombiner;
-
+    [SerializeField] MeshMaterialCombiner _meshMaterialCombiner;
+    
     private bool[,] _isArray;
-
     private void Start()
     {
         _isArray = new bool[_fieldSize, _fieldSize];
@@ -30,23 +29,22 @@ public class MapMaker : MonoBehaviour
         _meshMaterialCombiner.OnCombineMaterial();
     }
 
-    private Vector3 FieldPosSet(GameObject go)
+    Vector3 FieldPosSet(GameObject go)
     {
         Vector3 pos = go.transform.position;
 
-        for (int x = 0; x < _fieldSize; x++)
+        for(int x = 0; x < _fieldSize; x++)
         {
-            for (int z = 0; z < _fieldSize; z++)
+            for(int z = 0; z < _fieldSize; z++)
             {
-                if (!_isArray[x, z])
+                if (!_isArray[x,z])
                 {
-                    pos = new Vector3(x * 50, 0, z * 50);
+                    pos = new Vector3(x * 50 * 10, 0, z * 50 * 10);          
                     _isArray[x, z] = true;
                     return pos;
                 }
             }
         }
-
         return pos;
     }
 }

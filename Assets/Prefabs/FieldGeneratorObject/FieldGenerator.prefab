@@ -10,12 +10,13 @@ GameObject:
   m_Component:
   - component: {fileID: 3270483208478655983}
   - component: {fileID: 1235176931798077567}
+  - component: {fileID: 8851000311000437221}
   m_Layer: 0
   m_Name: FieldGenerator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &3270483208478655983
 Transform:
@@ -48,9 +49,43 @@ MonoBehaviour:
   _seedZ: 0
   _width: 50
   _depth: 50
-  _maxHeight: 5
-  _undulation: 5
+  _maxHeight: 0
+  _undulation: 100
   _mapSize: 1
   _fieldBox: {fileID: 2235324299722941542, guid: 5a1912da63d75504d8b8d929e7eca565, type: 3}
   _materialArray:
   - {fileID: 2100000, guid: 932bdd525b181674f9b1f7d8d84a8d04, type: 2}
+  - {fileID: 2100000, guid: 932bdd525b181674f9b1f7d8d84a8d04, type: 2}
+  - {fileID: 2100000, guid: 932bdd525b181674f9b1f7d8d84a8d04, type: 2}
+  - {fileID: 2100000, guid: 932bdd525b181674f9b1f7d8d84a8d04, type: 2}
+--- !u!114 &8851000311000437221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 845635593167297698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AgentTypeID: 0
+  m_CollectObjects: 0
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 2, z: 0}
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_UseGeometry: 0
+  m_DefaultArea: 0
+  m_GenerateLinks: 0
+  m_IgnoreNavMeshAgent: 1
+  m_IgnoreNavMeshObstacle: 1
+  m_OverrideTileSize: 1
+  m_TileSize: 200
+  m_OverrideVoxelSize: 1
+  m_VoxelSize: 6
+  m_MinRegionArea: 5
+  m_NavMeshData: {fileID: 0}
+  m_BuildHeightMesh: 1

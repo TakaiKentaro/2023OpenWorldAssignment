@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.AI.Navigation;
 using UnityEngine;
 
 public class FieldGenerator : MonoBehaviour
@@ -28,7 +29,7 @@ public class FieldGenerator : MonoBehaviour
     private float _boxScale;
     private FieldBox[,] _fieldArray;
 
-    private void Start()
+    private void Awake()
     {
         InitializeSeeds();
         InitializeFieldArray();
@@ -53,9 +54,9 @@ public class FieldGenerator : MonoBehaviour
         transform.localScale = new Vector3(_mapSize, _mapSize, _mapSize);
         _boxScale = _fieldBox.transform.localScale.x;
 
-        for (int x = 0; x < (int)_width; x++)
+        for (int x = 0; x < _width; x++)
         {
-            for (int z = 0; z < (int)_depth; z++)
+            for (int z = 0; z < _depth; z++)
             {
                 GameObject cube = Instantiate(_fieldBox);
                 cube.transform.localPosition = new Vector3(x * _boxScale, 0, z * _boxScale);
@@ -66,6 +67,8 @@ public class FieldGenerator : MonoBehaviour
                 SetYPosition(cube);
             }
         }
+
+        BakeNavMesh();
     }
 
     private void SetYPosition(GameObject cube)
@@ -84,6 +87,7 @@ public class FieldGenerator : MonoBehaviour
         cube.transform.localPosition = new Vector3(cube.transform.localPosition.x, y, cube.transform.localPosition.z);
 
         //ChangeCubeColor(cube, y);
+        cube.GetComponent<MeshRenderer>().material = _materialArray[0];
     }
 
     private void ChangeCubeColor(GameObject cube, float y)
@@ -104,5 +108,11 @@ public class FieldGenerator : MonoBehaviour
         {
             cube.GetComponent<MeshRenderer>().material = _materialArray[3];
         }
+    }
+    
+    private void BakeNavMesh()
+    {
+        NavMeshSurface navMeshSurface = GetComponent<NavMeshSurface>();
+        navMeshSurface.BuildNavMesh();
     }
 }
