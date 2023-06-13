@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PlayerStatus : ActorStatusBase
 {
-    public PlayerStatus(int initialHp, int initialAttack, int initialDefense, int initialAgility)
-        : base(initialHp, initialAttack, initialDefense, initialAgility)
+    public PlayerStatus(int initialHp, int initialAttack, int defense, int agility)
+        : base(initialHp, initialAttack, defense, agility)
     {
     }
 }

@@ -12,11 +12,11 @@ public class ActorStatusBase
     public IReadOnlyReactiveProperty<int> Defense => _defense;
     public IReadOnlyReactiveProperty<int> Agility => _agility;
 
-    public ActorStatusBase(int initialHp, int initialAttack, int initialDefense, int initialAgility)
+    public ActorStatusBase(int hp, int attack, int defense, int agility)
     {
-        _hp.Value = initialHp;
-        _attack.Value = initialAttack;
-        _defense.Value = initialDefense;
-        _agility.Value = initialAgility;
+        _hp.Value = hp;
+        _attack.Value = attack;
+        _defense.Value = defense;
+        _agility.Value = agility;
     }
 }
