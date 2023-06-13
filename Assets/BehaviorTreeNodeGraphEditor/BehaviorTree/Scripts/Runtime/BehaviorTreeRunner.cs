@@ -12,12 +12,21 @@ namespace BehaviorTreeNodeGraphEditor
     {
         [Tooltip("メインの行動ツリーアセット")] public BehaviorTree _behaviorTree;
 
+        private PlayerController _playerController;
         // ゲームオブジェクトのサブシステムを保持するコンテキストオブジェクト
         Context _context;
 
         void Start()
         {
+            
+            _playerController = GameObject.FindObjectOfType<PlayerController>();
             _context = CreateBehaviourTreeContext();
+            if (_playerController != null)
+            {
+                _context.playerController = Context.PlayerControllerFromGameObject(_playerController);
+                Debug.Log(_context.playerController);
+                Debug.Log(_context.agent);
+            }
             _behaviorTree = _behaviorTree.Clone();
             _behaviorTree.Bind(_context);
         }

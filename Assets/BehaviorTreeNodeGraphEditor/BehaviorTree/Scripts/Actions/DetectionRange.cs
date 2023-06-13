@@ -1,43 +1,49 @@
 using UnityEngine;
 using BehaviorTreeNodeGraphEditor;
+using UnityEngine.Serialization;
 
 /// <summary>
-/// 特定のオブジェクトが一定の範囲内に入ったら検知するクラス
+/// 範囲内に入った時にPlayerControllerの位置をblackboard.moveToPositionに渡すノード
 /// </summary>
 [System.Serializable]
 public class DetectionRange : ActionNode
 {
-    public GameObject targetObject;
-    public float detectionRange = 5f;
-
-    private Transform _transform;
-
+    public float _distance = 5f;
+    public PlayerController _playerController;
+    /// <summary>
+    /// ノードの開始時に呼ばれるメソッド
+    /// </summary>
     protected override void OnStart()
     {
-        _transform = context.transform;
+        _playerController = context.playerController;
     }
 
+    /// <summary>
+    /// ノードの停止時に呼ばれるメソッド
+    /// </summary>
     protected override void OnStop()
     {
     }
 
+    /// <summary>
+    /// ノードの更新時に呼ばれるメソッド
+    /// </summary>
+    /// <returns></returns>
     protected override State OnUpdate()
     {
-        // ターゲットオブジェクトが存在しない場合は失敗
-        if (targetObject == null)
+        if (_playerController == null)
         {
             return State.Failure;
         }
+        
+        float playerDis = Vector3.Distance(context.transform.position, _playerController.transform.position);
 
-        // ターゲットオブジェクトとの距離を計算
-        float distance = Vector3.Distance(_transform.position, targetObject.transform.position);
-
-        // 検知範囲内に入ったら成功
-        if (distance <= detectionRange)
+        if (playerDis <= _distance)
         {
+            blackboard.moveToPosition = _playerController.transform.position;
             return State.Success;
         }
-
+        
         return State.Running;
     }
 }
