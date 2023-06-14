@@ -18,14 +18,13 @@ MonoBehaviour:
   - rid: 3195392154864713734
   - rid: 3195392154864713735
   - rid: 3195392154864713736
-  - rid: 3195392154864713737
   - rid: 3195392154864713739
   - rid: 3195392197872844819
   treeState: 0
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
-  viewPosition: {x: 218, y: 150, z: 0}
-  viewScale: {x: 0.65751624, y: 0.65751624, z: 1}
+  viewPosition: {x: 163, y: -55, z: 0}
+  viewScale: {x: 1, y: 1, z: 1}
   references:
     version: 2
     RefIds:
@@ -70,20 +69,7 @@ MonoBehaviour:
         drawGizmos: 0
         children:
         - rid: 3195392197872844819
-        - rid: 3195392154864713737
         - rid: 3195392154864713739
-    - rid: 3195392154864713737
-      type: {class: Wait, ns: BehaviorTreeNodeGraphEditor, asm: Assembly-CSharp}
-      data:
-        state: 0
-        started: 0
-        guid: 7a27feb54b25a1a4aa7ae76fb66e5cd5
-        position: {x: -187.0566, y: 373.99997}
-        blackboard:
-          moveToPosition: {x: 0, y: 0, z: 0}
-        description: "\u5F85\u3064"
-        drawGizmos: 0
-        duration: 1
     - rid: 3195392154864713739
       type: {class: MoveToPosition, ns: , asm: Assembly-CSharp}
       data:
@@ -106,7 +92,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: aabfae4a4a29e4b48b8c6b1f22805f50
-        position: {x: 0, y: 374}
+        position: {x: -126.23262, y: 374}
         blackboard:
           moveToPosition: {x: 0, y: 0, z: 0}
         description: 
