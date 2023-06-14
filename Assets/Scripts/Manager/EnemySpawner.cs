@@ -1,36 +1,43 @@
+using System.Collections;
 using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
     [Header("Enemy")] [SerializeField] private EnemyController _enemy;
 
-    [Header("スポーン位置")] [SerializeField] private Vector3 _spawnPos;
+    [Header("スポーン位置高さ")] [SerializeField] private float _spawnPosY;
 
     [Header("ランダム位置範囲")] [SerializeField] private Vector3 _minOffset;
     [SerializeField] private Vector3 _maxOffset;
+
+    [SerializeField] private float _spawnInterval = 10f;
 
     private ObjectPool<EnemyController> _enemyPool;
 
     private void Start()
     {
-        if (_enemy == null || _spawnPos == null)
+        if (_enemy == null)
         {
             return;
         }
+
+        _enemyPool = new ObjectPool<EnemyController>(_enemy, transform);
+
+        StartCoroutine(SpawnEnemy());
     }
 
-    private void Update()
+    IEnumerator SpawnEnemy()
     {
-        IPool enemy = _enemyPool.Use();
-        _enemy.transform.parent = this.transform;
-        _enemy.transform.position = GetRandomPosition(_spawnPos, _minOffset, _maxOffset);
-    }
-
-    private Vector3 GetRandomPosition(Vector3 center, Vector3 minOffset, Vector3 maxOffset)
-    {
-        Vector3 randomOffset = new Vector3(UnityEngine.Random.Range(minOffset.x, maxOffset.x),
-            center.y,
-            UnityEngine.Random.Range(minOffset.z, maxOffset.z));
-        return center + randomOffset;
+        while (true)
+        {
+            var enemy = _enemyPool.Use();
+            enemy.transform.parent = this.transform;
+            _enemy.transform.position = new Vector3(
+                Random.Range(_minOffset.x, _maxOffset.x),
+                _spawnPosY,
+                Random.Range(_minOffset.z, _maxOffset.z)
+            );
+            yield return new WaitForSeconds(_spawnInterval);
+        }
     }
 }
