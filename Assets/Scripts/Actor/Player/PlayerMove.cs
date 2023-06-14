@@ -41,10 +41,10 @@ public class PlayerMove : MonoBehaviour
         {
             dir.y = 0;
 
-            Quaternion targetRotation = Quaternion.LookRotation(dir);
-            this.transform.rotation =
-                Quaternion.Slerp(this.transform.rotation, targetRotation, Time.deltaTime * _turnSpeed);
-
+            //Quaternion targetRotation = Quaternion.LookRotation(dir);
+            //this.transform.rotation = Quaternion.Slerp(this.transform.rotation, targetRotation, Time.deltaTime * _turnSpeed);
+            transform.rotation = Quaternion.LookRotation(dir);
+            
             Vector3 velo = dir.normalized * _moveSpeed;
             velo.y = _rb.velocity.y;
             _rb.velocity = velo;
