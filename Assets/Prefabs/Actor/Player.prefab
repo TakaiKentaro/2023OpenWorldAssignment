@@ -24,7 +24,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 624219528051641774}
-  m_LocalRotation: {x: 0.70090926, y: -0.0000009627479, z: 0.0000009460897, w: 0.7132505}
+  m_LocalRotation: {x: 0.70090926, y: 0.0000008928692, z: -0.0000008774201, w: 0.7132505}
   m_LocalPosition: {x: -0, y: 20, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -32,7 +32,7 @@ Transform:
   - {fileID: 1496060115495797746}
   m_Father: {fileID: 5284235001298864504}
   m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 64.55, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!114 &3203417503997749026
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -265,6 +265,7 @@ GameObject:
   - component: {fileID: 3043856952907811452}
   - component: {fileID: 3268614277561141989}
   - component: {fileID: 2279144140161406511}
+  - component: {fileID: 7610935656183889933}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -405,6 +406,7 @@ MonoBehaviour:
   _jumpForce: 5
   _turnSpeed: 100
   _isGroundedLength: 1.5
+  _particlePrefab: {fileID: 8132790950041331602, guid: d3ae4a932cf32274d8e1ff2b02331403, type: 3}
 --- !u!114 &2279144140161406511
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -417,3 +419,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af607387f2bee1a449a24b9747fb70bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7610935656183889933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6252330159875049234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 802562454f0655b4bbb81ccffa9e2f04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _detectionRadius: 5
+  _enemyLayer:
+    serializedVersion: 2
+    m_Bits: 8
