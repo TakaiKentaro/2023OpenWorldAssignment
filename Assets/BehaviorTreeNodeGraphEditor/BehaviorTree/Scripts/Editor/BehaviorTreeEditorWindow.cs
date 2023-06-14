@@ -178,9 +178,20 @@ namespace BehaviorTreeNodeGraphEditor
                 titleLabel.text = $"TreeView ({path})";
             }
 
-            overlayView.Hide();
-            treeView.PopulateView(serializer);
-            blackboardView.Bind(serializer);
+            if (overlayView != null)
+            {
+                overlayView.Hide();
+            }
+
+            if (treeView != null)
+            {
+                treeView.PopulateView(serializer);
+            }
+
+            if (blackboardView != null)
+            {
+                blackboardView.Bind(serializer);
+            }
         }
 
         void ClearSelection()

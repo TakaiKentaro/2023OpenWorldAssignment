@@ -2,10 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerStatus : ActorStatusBase
+public class PlayerStatus : IActorStatus
 {
-    public PlayerStatus(int initialHp, int initialAttack, int defense, int agility)
-        : base(initialHp, initialAttack, defense, agility)
+    public int Health { get; set; }
+    public int Attack { get; set; }
+    public int Defense { get; set; }
+    public int Speed { get; set; }
+    
+    public void SetStatus(int health, int attack, int defense, int speed)
     {
+        Health = health;
+        Attack = attack;
+        Defense = defense;
+        Speed = speed;
     }
 }

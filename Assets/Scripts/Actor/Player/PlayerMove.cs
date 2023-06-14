@@ -24,6 +24,11 @@ public class PlayerMove : MonoBehaviour
 
     private void Move()
     {
+        if (!IsGrounded())
+        {
+            return;
+        }
+
         float h = Input.GetAxis("Horizontal");
         float v = Input.GetAxis("Vertical");
         Vector3 dir = Vector3.forward * v + Vector3.right * h;

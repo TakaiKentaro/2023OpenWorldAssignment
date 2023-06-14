@@ -23,7 +23,8 @@ namespace BehaviorTreeNodeGraphEditor
             _context = CreateBehaviourTreeContext();
             if (_playerController != null)
             {
-                _context.playerController = Context.PlayerControllerFromGameObject(_playerController);
+                //_context.playerController = Context.PlayerControllerFromGameObject(_playerController);
+                _context.playerController = _playerController;
                 Debug.Log(_context.playerController);
                 Debug.Log(_context.agent);
             }
