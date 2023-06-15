@@ -6,7 +6,6 @@ public class PlayerMove : MonoBehaviour
 {
     [SerializeField] private float _moveSpeed;
     [SerializeField] private float _jumpForce;
-    [SerializeField] private float _turnSpeed = 0;
     [SerializeField] private float _isGroundedLength = 0;
     [SerializeField] private GameObject _particlePrefab; // パーティクルのプレハブ
 

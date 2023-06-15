@@ -1,16 +1,16 @@
+using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class EnemySpawner : MonoBehaviour
 {
     [Header("Enemy")] [SerializeField] private EnemyController _enemy;
-
-    [Header("スポーン位置高さ")] [SerializeField] private float _spawnPosY;
-
-    [Header("ランダム位置範囲")] [SerializeField] private Vector3 _minOffset;
-    [SerializeField] private Vector3 _maxOffset;
-
     [SerializeField] private float _spawnInterval = 10f;
+    
+    
+    [NonSerialized]public List<Vector3> _spawnPosList = new List<Vector3>();
 
     private ObjectPool<EnemyController> _enemyPool;
 
@@ -32,11 +32,7 @@ public class EnemySpawner : MonoBehaviour
         {
             var enemy = _enemyPool.Use();
             enemy.transform.parent = this.transform;
-            _enemy.transform.position = new Vector3(
-                Random.Range(_minOffset.x, _maxOffset.x),
-                _spawnPosY,
-                Random.Range(_minOffset.z, _maxOffset.z)
-            );
+            _enemy.transform.position = _spawnPosList[Random.Range(0, _spawnPosList.Count)];
             yield return new WaitForSeconds(_spawnInterval);
         }
     }

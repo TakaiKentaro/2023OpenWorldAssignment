@@ -18,23 +18,20 @@ public class ObjectPool<TPool> where TPool : MonoBehaviour, IPool
     private List<TPool> _pools;
     private TPool _type;
     private Transform _parent;
-    private int _poolObjectCount; //生成数
+    private const int DEFAULT_POOL_COUNT= 10; //生成数
 
-    private const int POOL_COUNT = 10;
-
-    public ObjectPool(TPool pool, Transform parent = null, int poolObjectCount = POOL_COUNT)
+    public ObjectPool(TPool pool, Transform parent = null, int poolObjectCount = DEFAULT_POOL_COUNT)
     {
         _pools = new List<TPool>();
         _type = pool;
         _parent = parent;
-        _poolObjectCount = POOL_COUNT;
 
         CreatObject();
     }
 
     void CreatObject()
     {
-        for (int i = 0; i < _poolObjectCount; i++)
+        for (int i = 0; i < DEFAULT_POOL_COUNT; i++)
         {
             TPool p = Object.Instantiate(_type);
 
