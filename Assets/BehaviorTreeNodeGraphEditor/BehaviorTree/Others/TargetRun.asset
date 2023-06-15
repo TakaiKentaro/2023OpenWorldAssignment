@@ -81,7 +81,7 @@ MonoBehaviour:
           moveToPosition: {x: 0, y: 0, z: 0}
         description: 
         drawGizmos: 0
-        _distance: 5
+        _distance: 8
         _playerController: {fileID: 0}
     - rid: 3195392253080633351
       type: {class: MoveToPosition, ns: , asm: Assembly-CSharp}
@@ -94,8 +94,8 @@ MonoBehaviour:
           moveToPosition: {x: 0, y: 0, z: 0}
         description: 
         drawGizmos: 0
-        speed: 5
+        speed: 8
         stoppingDistance: 0.1
         updateRotation: 1
         acceleration: 40
-        tolerance: 1
+        tolerance: 3

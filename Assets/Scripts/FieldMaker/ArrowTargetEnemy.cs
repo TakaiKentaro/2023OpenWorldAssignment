@@ -12,41 +12,42 @@ public class ArrowTargetEnemy : MonoBehaviour
 
     private void Start()
     {
-        _arrowImage = GetComponent<Image>(); 
-
+        _arrowImage = GetComponent<Image>();
         _mainCamera = Camera.main;      // メインカメラを取得
     }
 
     private void LateUpdate()
     {
-        if (_targetObject != null && _mainCamera != null && _canvasRect != null)
+        if (_targetObject == null || !_targetObject.gameObject.activeSelf || _mainCamera == null || _canvasRect == null)
         {
-            // 3Dオブジェクトがカメラ内に存在するかどうかを判定
-            Vector3 screenPoint = _mainCamera.WorldToViewportPoint(_targetObject.position);
-            bool isTargetVisible = screenPoint.z > 0 && screenPoint.x > 0 && screenPoint.x < 1 && screenPoint.y > 0 && screenPoint.y < 1;
+            return; // ターゲットオブジェクトが非アクティブまたは他の要件が満たされない場合、処理をスキップ
+        }
 
-            if (isTargetVisible)
-            {
-                _arrowImage.enabled = false;   // カメラ内に表示されている場合は非表示にする
-            }
-            else
-            {
-                _arrowImage.enabled = true;    // カメラ外に表示されている場合は表示する
+        // 3Dオブジェクトがカメラ内に存在するかどうかを判定
+        Vector3 screenPoint = _mainCamera.WorldToViewportPoint(_targetObject.position);
+        bool isTargetVisible = screenPoint.z > 0 && screenPoint.x > 0 && screenPoint.x < 1 && screenPoint.y > 0 && screenPoint.y < 1;
 
-                // 3Dオブジェクトの方向を矢印に反映する
-                Vector3 targetDirection = _targetObject.position - _mainCamera.transform.position;
-                float angle = Mathf.Atan2(targetDirection.x, targetDirection.z) * Mathf.Rad2Deg;
-                _arrowImage.rectTransform.rotation = Quaternion.Euler(0f, 0f, -angle);
+        if (isTargetVisible)
+        {
+            _arrowImage.enabled = false;   // カメラ内に表示されている場合は非表示にする
+        }
+        else
+        {
+            _arrowImage.enabled = true;    // カメラ外に表示されている場合は表示する
 
-                // 3Dオブジェクトのワールド座標をキャンバス内のスクリーン座標に変換
-                Vector2 screenPosition = RectTransformUtility.WorldToScreenPoint(_mainCamera, _targetObject.position);
-                Vector2 localPosition;
-                RectTransformUtility.ScreenPointToLocalPointInRectangle(_canvasRect, screenPosition, null, out localPosition);
+            // 3Dオブジェクトの方向を矢印に反映する
+            Vector3 targetDirection = _targetObject.position - _mainCamera.transform.position;
+            float angle = Mathf.Atan2(targetDirection.x, targetDirection.z) * Mathf.Rad2Deg;
+            _arrowImage.rectTransform.rotation = Quaternion.Euler(0f, 0f, -angle);
 
-                // キャンバス内に矢印を移動させる
-                Vector2 clampedPosition = ClampToCanvas(localPosition);
-                _arrowImage.rectTransform.localPosition = clampedPosition;
-            }
+            // 3Dオブジェクトのワールド座標をキャンバス内のスクリーン座標に変換
+            Vector2 screenPosition = RectTransformUtility.WorldToScreenPoint(_mainCamera, _targetObject.position);
+            Vector2 localPosition;
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(_canvasRect, screenPosition, null, out localPosition);
+
+            // キャンバス内に矢印を移動させる
+            Vector2 clampedPosition = ClampToCanvas(localPosition);
+            _arrowImage.rectTransform.localPosition = clampedPosition;
         }
     }
 
