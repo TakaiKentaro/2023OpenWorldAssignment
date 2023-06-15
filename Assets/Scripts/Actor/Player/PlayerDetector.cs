@@ -24,12 +24,10 @@ public class PlayerDetector : MonoBehaviour
         if (detected && !_wasDetected)
         {
             _isDetected = true;
-            Debug.Log("敵発見");
         }
         else if (!detected && _wasDetected)
         {
             _isDetected = false;
-            Debug.Log("敵不明");
         }
 
         _wasDetected = detected; // 前回の検知状態を更新

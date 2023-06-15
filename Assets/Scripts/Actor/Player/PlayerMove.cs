@@ -5,7 +5,6 @@ using UnityEngine;
 public class PlayerMove : MonoBehaviour
 {
     [SerializeField] private float _moveSpeed;
-    [SerializeField] private float _jumpForce;
     [SerializeField] private float _isGroundedLength = 0;
     [SerializeField] private GameObject _particlePrefab; // パーティクルのプレハブ
 
@@ -30,8 +29,6 @@ public class PlayerMove : MonoBehaviour
             Move();
         }
 
-        Jump();
-
         if (Input.GetMouseButtonDown(0))
         {
             SetTargetPosition();
@@ -49,12 +46,9 @@ public class PlayerMove : MonoBehaviour
         _rb.velocity = input.magnitude > 0 ? new Vector3(0f, _rb.velocity.y, 0f) : _rb.velocity;
     }
 
-    private void Jump()
+    public void AddMoveSpeed(int speed)
     {
-        if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
-        {
-            _rb.AddForce(Vector3.up * _jumpForce, ForceMode.Impulse);
-        }
+        _moveSpeed = speed;
     }
 
     private bool IsGrounded()

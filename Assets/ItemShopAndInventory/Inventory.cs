@@ -47,4 +47,10 @@ public class Inventory : MonoBehaviour
     {
         item.ApplyEffect();
     }
+
+    public void AddWallet(int value)
+    {
+        _wallet += value;
+        _walletText.text = _wallet.ToString();
+    }
 }

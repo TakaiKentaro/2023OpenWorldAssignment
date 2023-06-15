@@ -13,16 +13,16 @@ public class ItemDataAsset : ScriptableObject
 [System.Serializable]
 public class ItemData
 {
-    [SerializeField, Header("ƒAƒCƒeƒ€‚Ì–¼‘O")]
+    [SerializeField, Header("ï¿½Aï¿½Cï¿½eï¿½ï¿½ï¿½Ì–ï¿½ï¿½O")]
     private string _itemName = "None";
 
-    [SerializeField, Header("ƒAƒCƒeƒ€‚Ì‰æ‘œ"), Tooltip("–³‚­‚Ä‚à—Ç‚¢")]
+    [SerializeField, Header("ï¿½Aï¿½Cï¿½eï¿½ï¿½ï¿½Ì‰æ‘œ"), Tooltip("ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½Ç‚ï¿½")]
     private Sprite _sprite;
 
-    [SerializeField, Header("ƒAƒCƒeƒ€‚ÌŒø‰Ê")]
+    [SerializeField, Header("ï¿½Aï¿½Cï¿½eï¿½ï¿½ï¿½ÌŒï¿½ï¿½ï¿½")]
     private ActionEffect _effect = ActionEffect.Recovery;
 
-    [SerializeField, Header("ƒAƒCƒeƒ€‚Ì’l’i")]
+    [SerializeField, Header("ï¿½Aï¿½Cï¿½eï¿½ï¿½ï¿½Ì’lï¿½i")]
     private int _price = 0;
 
     public string Name { get => _itemName; }
@@ -32,9 +32,9 @@ public class ItemData
 
     public enum ActionEffect
     {
-        Recovery, // ‰ñ•œ
-        PowerUp, // UŒ‚—Íã¸
-        DefenseUp, // –hŒä—Íã¸
+        Recovery, 
+        PowerUp,
+        DefenseUp,
     }
 
     public void ApplyEffect()
@@ -47,11 +47,11 @@ public class ItemData
         switch (effect)
         {
             case ActionEffect.Recovery:
-                return "‘Ì—Í‚ª‰ñ•œ‚µ‚½";
+                return "ï¿½Ì—Í‚ï¿½ï¿½ñ•œ‚ï¿½ï¿½ï¿½";
             case ActionEffect.PowerUp:
-                return "UŒ‚—Í‚ªã‚ª‚Á‚½";
+                return "ï¿½Uï¿½ï¿½ï¿½Í‚ï¿½ï¿½ã‚ªï¿½ï¿½ï¿½ï¿½";
             case ActionEffect.DefenseUp:
-                return "–hŒä—Í‚ªã‚ª‚Á‚½";
+                return "ï¿½hï¿½ï¿½Í‚ï¿½ï¿½ã‚ªï¿½ï¿½ï¿½ï¿½";
             default:
                 return "";
         }

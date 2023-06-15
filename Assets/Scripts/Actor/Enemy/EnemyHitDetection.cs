@@ -10,9 +10,12 @@ public class EnemyHitDetection : MonoBehaviour
 
     private NavMeshAgent _agent;
     private float _speed;
-
+    private EnemyController _enemy;
+    private PlayerController _player;
     private void Start()
     {
+        _enemy = GetComponent<EnemyController>();
+        _player = GameObject.FindObjectOfType<PlayerController>();
         _agent = GetComponent<NavMeshAgent>();
         _speed = _agent.speed;
     }
@@ -23,6 +26,7 @@ public class EnemyHitDetection : MonoBehaviour
         {
             Vector3 knockbackDirection = -transform.forward;
             _agent.velocity = knockbackDirection * _knockbackForce;
+            _enemy.AddDamage(_player._status.Attack);
             StartCoroutine(ResetVelocity());
         }
     }

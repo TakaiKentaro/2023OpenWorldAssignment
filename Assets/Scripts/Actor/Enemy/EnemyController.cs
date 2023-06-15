@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyController : MonoBehaviour, IPool
@@ -10,18 +11,21 @@ public class EnemyController : MonoBehaviour, IPool
     [SerializeField] private int _speed;
 
     private EnemyStatus _status;
+    private Inventory _inventory;
 
     public bool Waiting { get; set; }
 
     public void SetUp(Transform parent)
     {
+        _inventory = FindObjectOfType<Inventory>();
+
         _status = new EnemyStatus();
         gameObject.SetActive(false);
     }
 
     public void IsUseSetUp()
     {
-        _status.SetStatus(_health, _attack, _defence, _speed);
+        _status.SetStatus(_health, _attack, _speed);
         gameObject.SetActive(true);
     }
 
@@ -32,6 +36,12 @@ public class EnemyController : MonoBehaviour, IPool
 
     public void Delete()
     {
+        _inventory.AddWallet(_health);
         gameObject.SetActive(false);
+    }
+
+    public void AddDamage(int dmg)
+    {
+        _status.Health -= dmg;
     }
 }
