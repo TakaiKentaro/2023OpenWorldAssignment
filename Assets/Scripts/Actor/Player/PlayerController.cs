@@ -8,7 +8,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private int _speed;
 
     public PlayerStatus _status;
-
     private PlayerMove _move;
 
     private void Start()
@@ -20,10 +19,15 @@ public class PlayerController : MonoBehaviour
 
     private void SetStatus(int hp, int atk, int spd)
     {
+        _move.AddMoveSpeed(spd);
         _status.SetStatus(_health, _attack, _speed);
     }
 
     public void UpdateStatus(int hp, int atk, int spd)
     {
+        _health += hp;
+        _attack += atk;
+        _speed += spd;
+        SetStatus(_health, _attack, _speed);
     }
 }

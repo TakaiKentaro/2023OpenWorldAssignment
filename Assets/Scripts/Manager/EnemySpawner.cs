@@ -8,9 +8,11 @@ public class EnemySpawner : MonoBehaviour
 {
     [Header("Enemy")] [SerializeField] private EnemyController _enemy;
     [SerializeField] private float _spawnInterval = 10f;
-    
+    [SerializeField] private float _spawnRadius = 10f;
+
     private ObjectPool<EnemyController> _enemyPool;
     private PlayerController _playerController;
+    public int _count;
 
     private void Start()
     {
@@ -30,13 +32,14 @@ public class EnemySpawner : MonoBehaviour
         while (true)
         {
             var enemy = _enemyPool.Use();
+            enemy.RandomStatus(_count);
             enemy.transform.parent = this.transform;
 
             Vector3 playerPosition = _playerController.transform.position;
 
-            float spawnRadius = 5f;
-
-            Vector3 spawnPosition = playerPosition + Random.insideUnitSphere * spawnRadius;
+            Vector2 randomCircle = Random.insideUnitCircle * _spawnRadius;
+            Vector3 spawnPosition = new Vector3(playerPosition.x + randomCircle.x, playerPosition.y,
+                playerPosition.z + randomCircle.y);
             spawnPosition.y = playerPosition.y;
 
             enemy.transform.position = spawnPosition;
