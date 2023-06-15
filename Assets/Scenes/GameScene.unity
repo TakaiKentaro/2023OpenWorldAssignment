@@ -972,7 +972,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 410472345}
   m_LocalRotation: {x: 0, y: -1, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: 1.94, z: 6.595}
+  m_LocalPosition: {x: 0, y: 17.61, z: 6.595}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1232,7 +1232,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3992092149800321250, guid: de52a075c8b4e6a4794dc00c9a4c71c5, type: 3}
       propertyPath: m_Speed
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5067338727598584639, guid: de52a075c8b4e6a4794dc00c9a4c71c5, type: 3}
       propertyPath: m_Name
@@ -2647,7 +2647,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1111571187}
   m_LocalRotation: {x: 0, y: -1, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: 1.94, z: 6.595}
+  m_LocalPosition: {x: 0, y: 17.61, z: 6.595}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2851,7 +2851,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3992092149800321250, guid: de52a075c8b4e6a4794dc00c9a4c71c5, type: 3}
       propertyPath: m_Speed
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5067338727598584639, guid: de52a075c8b4e6a4794dc00c9a4c71c5, type: 3}
       propertyPath: m_Name
@@ -3175,28 +3175,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 624219528051641774, guid: 50b21e27b32bf374caf4a5ec6da1ad09, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1305454615612516646, guid: 50b21e27b32bf374caf4a5ec6da1ad09, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 30
-      objectReference: {fileID: 0}
     - target: {fileID: 2279144140161406511, guid: 50b21e27b32bf374caf4a5ec6da1ad09, type: 3}
       propertyPath: _speed
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2279144140161406511, guid: 50b21e27b32bf374caf4a5ec6da1ad09, type: 3}
       propertyPath: _attack
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2279144140161406511, guid: 50b21e27b32bf374caf4a5ec6da1ad09, type: 3}
       propertyPath: _health
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2279144140161406511, guid: 50b21e27b32bf374caf4a5ec6da1ad09, type: 3}
-      propertyPath: _defence
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5284235001298864504, guid: 50b21e27b32bf374caf4a5ec6da1ad09, type: 3}
@@ -3246,10 +3234,6 @@ PrefabInstance:
     - target: {fileID: 6252330159875049234, guid: 50b21e27b32bf374caf4a5ec6da1ad09, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 9181195349050332556, guid: 50b21e27b32bf374caf4a5ec6da1ad09, type: 3}
-      propertyPath: m_Enabled
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3596,7 +3580,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Amazing Ranger
+  m_Text: Fist Adventure
 --- !u!222 &1922106978
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3833,7 +3817,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3992092149800321250, guid: de52a075c8b4e6a4794dc00c9a4c71c5, type: 3}
       propertyPath: m_Speed
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5067338727598584639, guid: de52a075c8b4e6a4794dc00c9a4c71c5, type: 3}
       propertyPath: m_Name
