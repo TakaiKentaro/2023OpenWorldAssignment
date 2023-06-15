@@ -119,9 +119,11 @@ GameObject:
   - component: {fileID: 5031711700463357002}
   - component: {fileID: 6986311584711875150}
   - component: {fileID: 3825910406996641204}
+  - component: {fileID: 7630437915813344070}
   - component: {fileID: 3992092149800321250}
   - component: {fileID: 269115047271073218}
   - component: {fileID: 3644609198401810601}
+  - component: {fileID: 6390890566432018364}
   m_Layer: 3
   m_Name: Enemy
   m_TagString: Enemy
@@ -144,7 +146,7 @@ Transform:
   - {fileID: 8945996946476171518}
   - {fileID: 1963128108927778073}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &5031711700463357002
 MeshFilter:
@@ -219,6 +221,33 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &7630437915813344070
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5067338727598584639}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
 --- !u!195 &3992092149800321250
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -270,6 +299,20 @@ MonoBehaviour:
   _attack: 1
   _defence: 1
   _speed: 1
+--- !u!114 &6390890566432018364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5067338727598584639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 463c2115cbeb1c74ab19ae70a4f1847b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _knockbackForce: 15
+  _knockbackDuration: 0.5
 --- !u!1 &6244118915333968655
 GameObject:
   m_ObjectHideFlags: 0
