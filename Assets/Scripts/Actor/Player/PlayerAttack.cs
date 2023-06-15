@@ -6,7 +6,7 @@ using UnityEngine;
 [RequireComponent(typeof(PlayerDetector))]
 public class PlayerAttack : MonoBehaviour
 {
-    [SerializeField] private GameObject _weapon;
+    [SerializeField] private WeaponAttack _weapon;
     private PlayerDetector _playerDetector;
 
     private void Start()
@@ -16,11 +16,11 @@ public class PlayerAttack : MonoBehaviour
 
     private void Update()
     {
+        
         if (!_playerDetector.IsDetectEnemy())
         {
             return;
         }
-        
-        
+        _weapon.OnAttack(transform);
     }
 }

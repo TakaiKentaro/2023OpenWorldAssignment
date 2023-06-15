@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
@@ -17,6 +18,16 @@ public class EnemyHitDetection : MonoBehaviour
     }
 
     private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Weapon"))
+        {
+            Vector3 knockbackDirection = -transform.forward;
+            _agent.velocity = knockbackDirection * _knockbackForce;
+            StartCoroutine(ResetVelocity());
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Weapon"))
         {
