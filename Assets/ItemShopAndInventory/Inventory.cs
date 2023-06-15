@@ -1,13 +1,17 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour
 {
     [SerializeField] private int _wallet = 0;
-
     [SerializeField] private Text _walletText;
+
+    [SerializeField] private Text _hpText;
+    [SerializeField] private Text _atkText;
+    [SerializeField] private Text _spdText;
 
     public int Wallet
     {
@@ -20,10 +24,11 @@ public class Inventory : MonoBehaviour
     [SerializeField] private GameObject _buttonPrefab;
 
     [SerializeField] private PlayerController _playerController;
-
+    [SerializeField] private EnemySpawner _enemySpawner;
     private void Start()
     {
         _walletText.text = _wallet.ToString();
+        OnStopTime(false);
     }
 
     public void GetItem(ItemData item)
@@ -61,6 +66,15 @@ public class Inventory : MonoBehaviour
                 _playerController.UpdateStatus(0, 0, 1);
                 break;
         }
+
+        _enemySpawner._count++;
+    }
+
+    public void OnStatusText()
+    {
+        _hpText.text = _playerController._status.Health.ToString();
+        _atkText.text = _playerController._status.Attack.ToString();
+        _spdText.text = _playerController._status.Speed.ToString();
     }
 
     public void AddWallet(int value)
