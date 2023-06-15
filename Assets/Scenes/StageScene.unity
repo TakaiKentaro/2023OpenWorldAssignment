@@ -152,10 +152,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bae3a4fd81effd842bf7be605be29a5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemy: {fileID: 0}
-  _spawnPos: {x: 0, y: 0, z: 0}
-  _minOffset: {x: 0, y: 0, z: 0}
-  _maxOffset: {x: 0, y: 0, z: 0}
+  _enemy: {fileID: 3644609198401810601, guid: cc5b7a9c111472849aa07cae552dc260, type: 3}
+  _spawnInterval: 10
 --- !u!4 &188296737
 Transform:
   m_ObjectHideFlags: 0
