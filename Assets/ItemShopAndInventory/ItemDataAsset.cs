@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Diagnostics.Tracing;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "ItemData", menuName = "ScriptableObjects/CreateItemDataAsset")]
@@ -35,25 +36,29 @@ public class ItemData
         Recovery, 
         PowerUp,
         DefenseUp,
+        SpeedUp,
+        None,
     }
 
-    public void ApplyEffect()
+    public ActionEffect ApplyEffect()
     {
-        Debug.Log(GetEffectMessage(_effect));
+        return GetEffectMessage( _effect);
     }
 
-    private string GetEffectMessage(ActionEffect effect)
+    private ActionEffect GetEffectMessage(ActionEffect effect)
     {
         switch (effect)
         {
             case ActionEffect.Recovery:
-                return "�̗͂��񕜂���";
+                return ActionEffect.Recovery;
             case ActionEffect.PowerUp:
-                return "�U���͂��オ����";
+                return ActionEffect.PowerUp;
             case ActionEffect.DefenseUp:
-                return "�h��͂��オ����";
-            default:
-                return "";
+                return ActionEffect.DefenseUp;
+            case ActionEffect.SpeedUp:
+                return ActionEffect.SpeedUp;
         }
+
+        return ActionEffect.None;
     }
 }
